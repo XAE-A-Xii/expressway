@@ -243,6 +243,15 @@ document.addEventListener('DOMContentLoaded', () => {
       updateLabelsVisibility();
       map.on('zoomend', updateLabelsVisibility);
 
+      // Update statistics
+      if (document.getElementById('stat-total-polygons')) {
+        document.getElementById('stat-total-polygons').textContent = data.features.length;
+      }
+      if (document.getElementById('stat-visible-sectors')) {
+        const coreCount = data.features.filter(f => f.properties.isGurugramNumbered).length;
+        document.getElementById('stat-visible-sectors').textContent = coreCount;
+      }
+
       // Populate directory list
       populateDirectory(data.features);
     })
