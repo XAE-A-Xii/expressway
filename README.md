@@ -2,6 +2,11 @@
 
 An interactive vector map and standardized GeoJSON dataset of **Gurugram Sectors 1 through 115**, powered by official GMDA (Gurugram Metropolitan Development Authority) & Haryana DTCP GIS data.
 
+## 🌐 Live Deployments
+
+- **Vercel**: [https://expressway-wheat.vercel.app](https://expressway-wheat.vercel.app)
+- **GitHub Pages**: [https://xae-a-xii.github.io/expressway/](https://xae-a-xii.github.io/expressway/)
+
 ![Gurugram Sectors Map](https://raw.githubusercontent.com/XAE-A-Xii/expressway/main/screenshot.png)
 
 ## 📌 Features
