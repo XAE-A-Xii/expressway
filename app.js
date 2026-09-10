@@ -301,6 +301,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (layer) {
           selectSector(p.sector, layer);
           map.fitBounds(layer.getBounds(), { maxZoom: 15, padding: [60, 60] });
+          if (window.innerWidth <= 640) {
+            closeSidebar();
+          }
         }
       });
 
@@ -411,11 +414,29 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const sidebar = document.getElementById('sidebar-directory');
+  const backdrop = document.getElementById('sidebar-backdrop');
+
+  function openSidebar() {
+    sectorCard.classList.remove('visible');
+    sidebar.classList.add('open');
+    if (backdrop) backdrop.classList.add('open');
+  }
+
+  function closeSidebar() {
+    sidebar.classList.remove('open');
+    if (backdrop) backdrop.classList.remove('open');
+  }
+
   document.getElementById('btn-toggle-sidebar').addEventListener('click', () => {
-    sidebar.classList.toggle('open');
+    if (sidebar.classList.contains('open')) {
+      closeSidebar();
+    } else {
+      openSidebar();
+    }
   });
 
-  document.getElementById('btn-close-sidebar').addEventListener('click', () => {
-    sidebar.classList.remove('open');
-  });
+  document.getElementById('btn-close-sidebar').addEventListener('click', closeSidebar);
+  if (backdrop) {
+    backdrop.addEventListener('click', closeSidebar);
+  }
 });
